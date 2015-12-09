@@ -3,10 +3,10 @@ defmodule Expr.VMTest do
   import Expr.VM
 
   @form   "(123+(bananas*456))"
-  @env    [bananas: 789]
+  @env    [bananas: 5]
   @expr   {:add, {:num, 123}, {:mul, {:var, :bananas}, {:num, 456}}}
   @prog   [{:push, 123}, {:fetch, :bananas}, {:push, 456}, {:mul2}, {:add2}]
-  @result 359907
+  @result 2403
 
   test "compile" do
     assert compile(@expr) == @prog
